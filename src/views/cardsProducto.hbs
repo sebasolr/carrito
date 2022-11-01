@@ -1,13 +1,22 @@
 <div class="row">
     {{#each productos}}
 <div class="card col-6 mb-2 gap-2 m-2" style="width: 18rem;">
-  <img class="card-img-top" src="{{this.url}}" alt="Card image cap">
-  <div class="card-body">
-    <h4 class="card-title">{{this.producto}}</h4>
+  <img class="card-img-top" style='height: 200px ;' src="{{this.url}}" alt="Card image cap">
+  <div class="card-body text-center">
+    <h3 class="card-title">{{this.titulo}}</h3>
+    <h5 class="card-title">{{this.clasificacion}}</h5>
+    <p class="card-text">Codigo: {{this.codigo}}</p>
+    <p class="card-text"> <b>Descripcion:</b></p>
     <p class="card-text">{{this.descripcion}}</p>
-    <p class="card-text">{{this.precio}}</p>
-    <a href="#" class="btn btn-primary">agregar al carrito</a>
-  </div>
+    <p class="card-text text-center">Precio: {{this.precio}} Stock: {{this.stock}}</p>
+    <form action="/carrito" method="post">
+      <button type="submit" action="post" name="id" value="{{this.id}}">
+        <i class="fa-solid fa-cart-plus">
+        </i>
+      </button>
+    </form>
+      </div>
 </div>
 {{/each}}
 </div>
+

@@ -24,14 +24,30 @@ try {
 router.get('/productos/:id', async (req, res) => {
     const {id} = req.params;
     const numberID = parseInt(id)
-    const productos = await crud.getById(numberID)
+    const productos = await ProductsBD.getById(numberID)
     res.render("cardsProducto",{productos})
 });
 
 
-router.post('/productos', verifyRole,(req, res) => {
-    crud.create(req.body)
-    res.redirect('/api/productos')
+router.post('/productos', verifyRole, async (req, res) => {
+    try {
+        const {titulo, clasificacion, descripcion, codigo, url, precio, stock } =req.body;
+        const producto =  await JOI_VALIDATOR.product.validateAsync({
+            titulo,
+            clasificacion,
+            descripcion,
+            codigo,
+            url,
+            precio,
+            stock,
+            timestamp: DATE_UTILS.getTimestamp(),
+        });
+        const createArticulo = await ProductsBD.create(producto)
+        res.redirect('/api/productos')
+    } catch (error) {
+
+        res.send(error)
+    }
 });
 
 router.put('/productos', (req, res) => {

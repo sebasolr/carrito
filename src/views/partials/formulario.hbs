@@ -1,20 +1,26 @@
 <form action="/api/productos" method="post">
 <h1 class="text-center">Ingresa Productos nuevos Aqui!</h1>
 <div class="input-group mb-3 container-sm">
-  <span class="input-group-text" id="basic-addon1" required="" >Nombre Producto</span>
-  <input type="text" class="form-control"name="producto" placeholder="Ingrese el nombre del producto" aria-label="nameProducto" aria-describedby="basic-addon1">
-  <span class="input-group-text" id="basic-addon2">Precio Producto</span>
-  <input type="number" class="form-control" name="precio" placeholder="ingrese un valor mayor a 0" aria-label="Recipient's username" aria-describedby="basic-addon2" >
+  <span class="input-group-text" id="basic-addon1" required="" >Titulo del Producto</span>
+  <input type="text" class="form-control"name="titulo" placeholder="Ingrese el nombre del producto" aria-label="nameProducto" aria-describedby="basic-addon1">
+  <span class="input-group-text" id="basic-addon2">Clasificacion</span>
+  <input type="text" class="form-control" name="clasificacion" placeholder="ingrese un valor mayor a 0" aria-label="Recipient's username" aria-describedby="basic-addon2" >
+</div>
+<div class="input-group mb-3 container-sm">
+  <span class="input-group-text" id="basic-addon1" required="" >Descripcion</span>
+  <input type="text" class="form-control"name="descripcion" placeholder="Ingrese el nombre del producto" aria-label="nameProducto" aria-describedby="basic-addon1">
+  <span class="input-group-text" id="basic-addon2">codigo Producto</span>
+  <input type="text" class="form-control" name="codigo" placeholder="ingrese un valor mayor a 0" aria-label="Recipient's username" aria-describedby="basic-addon2" >
 </div>
 
 <div class="input-group mb-3 container-sm">
   <span class="input-group-text" id="basic-addon3">imagen del producto</span>
   <input type="url" class="form-control" name="url" id="basic-url" aria-describedby="basic-addon3">
 
-  <span class="input-group-text">Codigo del producto</span>
-  <input type="number" class="form-control" aria-label="codigo" name="codigo">
-  <span class="input-group-text">descripcion </span>
-  <input type="text" class="form-control" aria-label="descripcion" name="descripcion">
+  <span class="input-group-text">precio del producto</span>
+  <input type="number" class="form-control" aria-label="precio" name="precio">
+  <span class="input-group-text">stock </span>
+  <input type="number" class="form-control" aria-label="descripcion" name="stock">
 <button type="submit" class="btn btn-secondary">Subir Producto</button>
 </div>
 </form>
