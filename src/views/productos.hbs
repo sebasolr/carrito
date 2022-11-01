@@ -1,11 +1,12 @@
-<table class="table align-middle mb-0 bg-white">
+{{> formulario}}
+<table class="table align-middle mb-0 bg-white container-sm">
   <thead class="bg-light">
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Position</th>
-      <th>Actions</th>
+      <th>Producto</th>
+      <th>precio</th>
+      <th>descripcion</th>
+      <th>codigo</th>
+      <th>stock</th>
     </tr>
   </thead>
   <tbody>
@@ -21,21 +22,27 @@
               />
           <div class="ms-3">
             <p class="fw-bold mb-1">{{this.producto}}</p>
-            <p class="text-muted mb-0"{{this.precio}}</p>
+            
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{this.codigo}}</p>
-        <p class="text-muted mb-0">{{this.descripcion}}</p>
+        <p class="fw-normal mb-1">{{this.precio}}</p>
       </td>
       <td>
-        <span class="badge badge-success rounded-pill d-inline">{{this.stock}}</span>
+        <p class="fw-normal mb-1">{{this.descripcion}}</p>
       </td>
-      <td>{{this.date}}</td>
+      <td>
+        <p class="fw-normal mb-1">{{this.codigo}}</p>
+      </td>
       <td>
         <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Edit
+         <a href="/api/productos/{{this.id}}">Edit</a>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-link btn-sm btn-rounded" onclick="deleteById({{this.id}})">
+         <a  href="/api/productos" >Remove</a>
         </button>
       </td>
     </tr>

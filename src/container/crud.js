@@ -47,14 +47,14 @@ class Crud  {
     async getById(id) {
         try {
             const leerbyIdObjt = await this.getAll();
-            const encontrado = leerbyIdObjt.find(item => item.id === id)//busco en base al id
+            const encontrado = leerbyIdObjt.filter(item => item.id == id)//busco en base al id
             if(encontrado === undefined){
-                console.log("Id no Valido");
+                console.log("id no Valido .");
             }else{
                 return encontrado;
             }
         } catch (error) {
-            console.log("Id no valido!");
+            console.log("id no valido!");
         }
     };
     //Devuelve todo los objetos presentes
@@ -73,6 +73,7 @@ class Crud  {
         try {
             const leerObj = await this.getAll();
             const encontrado = leerObj.filter(item => item.id !== id)
+            console.log(encontrado);
             if(!encontrado){
                 console.log("no existe ese archivo");
             }else{

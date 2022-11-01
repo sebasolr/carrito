@@ -1,0 +1,13 @@
+<div class="row">
+    {{#each productos}}
+<div class="card col-6 mb-2 gap-2 m-2" style="width: 18rem;">
+  <img class="card-img-top" src="{{this.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">{{this.producto}}</h4>
+    <p class="card-text">{{this.descripcion}}</p>
+    <p class="card-text">{{this.precio}}</p>
+    <a href="#" class="btn btn-primary">agregar al carrito</a>
+  </div>
+</div>
+{{/each}}
+</div>

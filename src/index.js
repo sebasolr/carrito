@@ -1,6 +1,5 @@
 import express from "express";
-import router from "./routes/routesApi.js"
-import routerPublic from "./routes/routesPublic.js";
+import { CartRouter,ProductsRouter,OtherRouter } from "./routes/index.js";
 import handlebars   from "express-handlebars"
 const app = express();
 
@@ -18,7 +17,8 @@ app.set("view engine", "hbs");
 app.set('views','./views')
 
 const PORT = process.env.PORT || 8080;
-app.use('/api',router);
-app.use(routerPublic)
+app.use('/api',ProductsRouter);
+app.use(CartRouter)
+app.use(OtherRouter)
 
 app.listen(PORT, (console.log(`funcionando en el puerto ${PORT}`)))
