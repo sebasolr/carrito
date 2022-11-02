@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ProductsBD } from "../../container/dao/index.js";
 import { verifyRole } from "../../middleware/verifyRole.js";
+import { BBDD } from "../../config/index.js";
 import{
     DATE_UTILS,
     ERROR_UTILS,
@@ -11,6 +12,15 @@ const router = Router()
 
 router.get('/productos', async (req, res) => {
 try {
+    BBDD.from('producto').select("*")
+    .then((rows)=>{
+        for(let row of rows) {
+            console.log(`${row['id']} ${row['titulo']} ${row['precio']}`);
+    }
+}).catch((err) =>{console.log(err); console.log; throw err})
+.finally(()=>{BBDD.destroy();});
+    
+        
     const articulos = await ProductsBD.getAll();
     if(!articulos){
         return res.send({error: ERROR_UTILS.Mensaje.no_products});
