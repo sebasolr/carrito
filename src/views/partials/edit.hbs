@@ -1,0 +1,25 @@
+
+<form action="/api/productos/edit" method="post">
+  <div class="form-row">
+    <div class="form-group col-sm">{{articulos}}
+      <input type="hidden"  name="id" value="{{id}}" >
+      <label for="inputEmail4">Titulo del producto</label>
+      <input type="text" name="titulo" class="form-control"  value="{{titulo}}" placeholder="nombre">
+      <label for="inputPassword4">Clasificacion</label>
+      <input type="text" name="clasificacion" class="form-control" value="{{clasificacion}}" placeholder="clasificacion genero">
+      <label for="inputAddress">Descripcion</label>
+      <input type="text" name="descripcion" class="form-control" value="{{descripcion}}" placeholder="descripcion del producto">
+      <label for="inputAddress">codigo</label>
+      <input type="text" name="codigo" class="form-control" value="{{this.codigo}}" placeholder="codigo">
+      <label for="inputAddress2">URL imagen</label>
+      <input type="url" class="form-control" name="url" value="{{this.url}}" placeholder="URL htttp://...">
+      <label for="inputAddress2">precio</label>
+      <input type="number" class="form-control" name="precio" value="{{this.precio}}" placeholder="Precio $">
+      <label for="inputZip">stock</label>
+      <input type="number" class="form-control" name="stock" value="{{this.stock}}" placeholder="Unidades disponible">
+      <input type="hidden" name="timestamp" value="{{this.timestamp}}">
+    </div>
+    </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Guardar producto</button>
+</form>

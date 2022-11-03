@@ -56,9 +56,7 @@
         <p class="fw-normal mb-1">{{this.descripcion}}</p>
       </td>
       <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-         <a href="/api/productos/{{this.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
-        </button>
+        {{> modalEdit}}
       </td>
       <td>
       <form action="/api/productos/delete" method="post">
@@ -72,3 +70,4 @@
     {{/each}}
   </tbody>
 </table>
+<i class="fa-solid fa-pen-to-square"></i>
