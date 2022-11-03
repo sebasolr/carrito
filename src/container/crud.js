@@ -72,14 +72,14 @@ class Crud  {
     async deleteById(id) {
         try {
             const leerObj = await this.getAll();
-            const encontrado = leerObj.filter(item => item.id !== id)
-            console.log(encontrado);
+            console.log(id);
+            const encontrado = leerObj.filter(item => item.id != id)
             if(!encontrado){
                 console.log("no existe ese archivo");
             }else{
                 const encontradoString = JSON.stringify(encontrado);
-                await fs.promises.writeFile(`../database/${this.nombreArchivo}`, encontradoString);
-                console.log("archivo eliminado correctamente, Documento nuevo: ",encontrado);
+                await fs.promises.writeFile(`../database/${this.nombreArchivo}`, `${encontradoString}`);
+                console.log("archivo eliminado correctamente, Documento nuevo: ");
             }
         } catch (error) {
             console.log("No se ha logrado eliminar el archivo:",error);

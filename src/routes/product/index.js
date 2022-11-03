@@ -15,10 +15,9 @@ try {
     BBDD.from('producto').select("*")
     .then((rows)=>{
         for(let row of rows) {
-            console.log(`${row['id']} ${row['titulo']} ${row['precio']}`);
+            (`${row['id']} ${row['titulo']} ${row['precio']}`);
     }
-}).catch((err) =>{console.log(err); console.log; throw err})
-.finally(()=>{BBDD.destroy();});
+}).catch((err) =>{console.log(err) });
     
         
     const articulos = await ProductsBD.getAll();
@@ -52,6 +51,9 @@ router.post('/productos', verifyRole, async (req, res) => {
             stock,
             timestamp: DATE_UTILS.getTimestamp(),
         });
+        BBDD.from('producto').insert(producto)
+        .then(() => console.log('data inserted successfully'))
+        .catch(err =>{ console.log(err); throw err });
         const createArticulo = await ProductsBD.create(producto)
         res.redirect('/api/productos')
     } catch (error) {
@@ -64,12 +66,11 @@ router.put('/productos', (req, res) => {
 
 });
 
-router.delete('/productos', async(req, res) => {
-    remove.addEventListener('click', async(req, res)=>{
-        const {id} =req.body;
-        await crud.deleteById(id)
+router.post('/productos/delete', async(req, res) => {
+        const {id} = req.body
+        await ProductsBD.deleteById(id)
         res.redirect('/api/productos')
-    })
+   
 });
 
 export {router as ProductsRouter};

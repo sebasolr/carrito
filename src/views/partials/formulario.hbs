@@ -1,26 +1,23 @@
+
 <form action="/api/productos" method="post">
-<h1 class="text-center">Ingresa Productos nuevos Aqui!</h1>
-<div class="input-group mb-3 container-sm">
-  <span class="input-group-text" id="basic-addon1" required="" >Titulo del Producto</span>
-  <input type="text" class="form-control"name="titulo" placeholder="Ingrese el nombre del producto" aria-label="nameProducto" aria-describedby="basic-addon1">
-  <span class="input-group-text" id="basic-addon2">Clasificacion</span>
-  <input type="text" class="form-control" name="clasificacion" placeholder="ingrese un valor mayor a 0" aria-label="Recipient's username" aria-describedby="basic-addon2" >
-</div>
-<div class="input-group mb-3 container-sm">
-  <span class="input-group-text" id="basic-addon1" required="" >Descripcion</span>
-  <input type="text" class="form-control"name="descripcion" placeholder="Ingrese el nombre del producto" aria-label="nameProducto" aria-describedby="basic-addon1">
-  <span class="input-group-text" id="basic-addon2">codigo Producto</span>
-  <input type="text" class="form-control" name="codigo" placeholder="ingrese un valor mayor a 0" aria-label="Recipient's username" aria-describedby="basic-addon2" >
-</div>
+  <div class="form-row">
+    <div class="form-group col-sm">
+      <label for="inputEmail4">Titulo del producto</label>
+      <input type="text" name="titulo" class="form-control"  placeholder="nombre">
+      <label for="inputPassword4">Clasificacion</label>
+      <input type="text" name="clasificacion" class="form-control"  placeholder="clasificacion genero">
+      <label for="inputAddress">Descripcion</label>
+      <input type="text" name="descripcion" class="form-control"  placeholder="descripcion del producto">
+      <label for="inputAddress">codigo</label>
+      <input type="text" name="codigo" class="form-control"  placeholder="codigo">
+      <label for="inputAddress2">URL imagen</label>
+      <input type="url" class="form-control" name="url" placeholder="URL htttp://...">
+      <label for="inputAddress2">precio</label>
+      <input type="number" class="form-control" name="precio" placeholder="Precio $">
+      <label for="inputZip">stock</label>
+      <input type="number" class="form-control" name="stock" placeholder="Unidades disponible">
+    </div>
+    </div>
 
-<div class="input-group mb-3 container-sm">
-  <span class="input-group-text" id="basic-addon3">imagen del producto</span>
-  <input type="url" class="form-control" name="url" id="basic-url" aria-describedby="basic-addon3">
-
-  <span class="input-group-text">precio del producto</span>
-  <input type="number" class="form-control" aria-label="precio" name="precio">
-  <span class="input-group-text">stock </span>
-  <input type="number" class="form-control" aria-label="descripcion" name="stock">
-<button type="submit" class="btn btn-secondary">Subir Producto</button>
-</div>
+  <button type="submit" class="btn btn-primary mt-2">Guardar producto</button>
 </form>
